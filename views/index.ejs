@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container main-content">
+  <% if(blogs.length === 0){ %> 
+    <h1 class="mt-5 text-center">No Blog is Written yet.</h1>
+    <div class="text-center mt-3" ><a href="/composser" class="btn btn-danger">Start Writing Blog</a></div>
+  <% }else{ %>
+    <% blogs.forEach((blog, index) => { %>
+      <div class="card my-5">
+        <div class="card-body">
+          <p><small><%= blog.time %></small></p>
+          <h3 class="card-title"><%= blog.title %></h3>
+          <p class="card-text"><%= blog.content %></p>
+          <a href="/postview/<%= blog._id %>" class="btn btn-info">View Post</a>
+          <a href="/postedit/<%= blog._id %>" class="btn btn-warning ms-1">Edit</a>
+          <a href="/postdelete/<%= blog._id %>" class="btn btn-danger ms-1">Delete</a>
+        </div>
+      </div>
+    <% }) %>
+  <% } %>
+</div>
+
+<%- include("partials/footer.ejs") %>
