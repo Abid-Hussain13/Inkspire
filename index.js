@@ -35,7 +35,7 @@ const blogSchema = new mongoose.Schema({
     time: String,
 });
 
-const Blog = mongoose.model("Blog", blogSchema);
+const Blog = mongoose.model("Blog", blogSchema, "blogs");
 
 app.get('/', async(req, res) => {
     const blogs = await Blog.find().sort({ _id: -1 });
