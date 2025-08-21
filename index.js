@@ -87,7 +87,4 @@ app.post('/save/:id', async(req, res) => {
     
 })
 
-// Server configuration
-app.listen(server, () => {
-    console.log(`Server is running on port ${server}`);
-});
+export default app;
