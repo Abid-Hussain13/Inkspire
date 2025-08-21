@@ -2,15 +2,25 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const app = express();
 const server = 3000;
 dotenv.config();
 
 // Middleware
-app.use(express.static("public"));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Middleware setup
+app.use('/images', express.static(path.join(__dirname, 'public', 'images')));
+app.set('view engine', 'ejs'); 
+app.set('views', path.join(__dirname, 'views'));
+
 app.use(bodyParser.urlencoded({ extended: true }));
-app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
