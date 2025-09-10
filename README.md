@@ -29,7 +29,7 @@ Inkspire allows users to **create, read, update, and delete blogs** with a clean
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/your-username/inkspire.git
+git clone [https://github.com/your-username/inkspire.git](https://github.com/Abid-Hussain13/Inkspire.git)
 cd inkspire
 ```
 
